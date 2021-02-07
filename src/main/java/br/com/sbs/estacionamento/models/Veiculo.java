@@ -3,6 +3,8 @@ package br.com.sbs.estacionamento.models;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,16 +16,18 @@ import br.com.sbs.estacionamento.models.enums.TipoVeiculo;
 @Entity
 @Table(name = "tb_veiculo")
 public class Veiculo implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String marca;
 	private String modelo;
+	@Enumerated(value = EnumType.STRING)
 	private CorVeiculo cor;
 	private String placa;
+	@Enumerated(value = EnumType.STRING)
 	private TipoVeiculo tipo;
 
 	public Veiculo() {
@@ -32,6 +36,15 @@ public class Veiculo implements Serializable {
 
 	public Veiculo(Integer id, String marca, String modelo, CorVeiculo cor, String placa, TipoVeiculo tipo) {
 		this.id = id;
+		this.marca = marca;
+		this.modelo = modelo;
+		this.cor = cor;
+		this.placa = placa;
+		this.tipo = tipo;
+	}
+
+	public Veiculo(String marca, String modelo, CorVeiculo cor, String placa, TipoVeiculo tipo) {
+		super();
 		this.marca = marca;
 		this.modelo = modelo;
 		this.cor = cor;
