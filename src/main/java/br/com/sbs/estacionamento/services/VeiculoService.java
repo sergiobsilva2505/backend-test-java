@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.sbs.estacionamento.VeiculoDto.VeiculoDto;
+import br.com.sbs.estacionamento.Dto.VeiculoDto;
 import br.com.sbs.estacionamento.exceptions.DataIntegrityException;
 import br.com.sbs.estacionamento.models.Veiculo;
 import br.com.sbs.estacionamento.repositories.VeiculoRepository;

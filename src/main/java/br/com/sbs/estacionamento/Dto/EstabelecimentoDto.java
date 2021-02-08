@@ -1,60 +1,26 @@
-package br.com.sbs.estacionamento.models;
+package br.com.sbs.estacionamento.Dto;
 
-import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "tb_estabelecimento")
-public class Estabelecimento implements Serializable {
+public class EstabelecimentoDto {
 	
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
 	private String nome;
 	private String cnpj;
 	private Integer vagasParaCarro;
 	private Integer vagasParaMoto;
 	private String telefone;
 	private String endereco;
-
-	public Estabelecimento() {
-
-	}
-
-	public Estabelecimento(Integer id, String nome, String cnpj, Integer vagasParaCarro, Integer vagasParaMoto,
-			String telefone, String endereco) {
-		this.id = id;
-		this.nome = nome;
-		this.cnpj = cnpj;
-		this.vagasParaCarro = vagasParaCarro;
-		this.vagasParaMoto = vagasParaMoto;
-		this.telefone = telefone;
-		this.endereco = endereco;
-	}
 	
-	public Estabelecimento(String nome, String cnpj, Integer vagasParaCarro, Integer vagasParaMoto,
-			String telefone, String endereco) {
+	public EstabelecimentoDto() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public EstabelecimentoDto(String nome, String cnpj, Integer vagasParaCarro, Integer vagasParaMoto, String telefone,
+			String endereco) {
 		this.nome = nome;
 		this.cnpj = cnpj;
 		this.vagasParaCarro = vagasParaCarro;
 		this.vagasParaMoto = vagasParaMoto;
 		this.telefone = telefone;
 		this.endereco = endereco;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getNome() {
@@ -104,5 +70,7 @@ public class Estabelecimento implements Serializable {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+	
+	
 
 }

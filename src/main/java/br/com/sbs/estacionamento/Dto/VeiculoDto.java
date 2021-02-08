@@ -1,4 +1,4 @@
-package br.com.sbs.estacionamento.VeiculoDto;
+package br.com.sbs.estacionamento.Dto;
 
 import br.com.sbs.estacionamento.models.enums.CorVeiculo;
 import br.com.sbs.estacionamento.models.enums.TipoVeiculo;

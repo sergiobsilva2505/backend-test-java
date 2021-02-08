@@ -3,9 +3,7 @@ package br.com.sbs.estacionamento.controller;
 import java.net.URI;
 import java.util.List;
 
-import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.sbs.estacionamento.VeiculoDto.VeiculoDto;
+import br.com.sbs.estacionamento.Dto.VeiculoDto;
 import br.com.sbs.estacionamento.models.Veiculo;
 import br.com.sbs.estacionamento.services.VeiculoService;
 
