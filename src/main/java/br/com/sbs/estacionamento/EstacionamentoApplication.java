@@ -25,12 +25,12 @@ public class EstacionamentoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		Veiculo v1 = new Veiculo(null, "FIAT", "Uno", CorVeiculo.BRANCO, "ABC1234", TipoVeiculo.CARRO);
-		Veiculo v2 = new Veiculo(null, "HYUNDAI", "Civic", CorVeiculo.VERMELHO, "ZYB4567", TipoVeiculo.CARRO);
-		Veiculo v3 = new Veiculo(null, "HONDA", "CG125", CorVeiculo.AZUL, "KCL6969", TipoVeiculo.MOTO);
-		Veiculo v4 = new Veiculo(null, "YAMAHA", "Factor150", CorVeiculo.CINZA, "STF0157", TipoVeiculo.MOTO);
-
-		veiculoRepo.saveAll(Arrays.asList(v1, v2, v3, v4));
+//		Veiculo v1 = new Veiculo(null, "FIAT", "Uno", CorVeiculo.BRANCO, "ABC1234", TipoVeiculo.CARRO);
+//		Veiculo v2 = new Veiculo(null, "HYUNDAI", "Civic", CorVeiculo.VERMELHO, "ZYB4567", TipoVeiculo.CARRO);
+//		Veiculo v3 = new Veiculo(null, "HONDA", "CG125", CorVeiculo.AZUL, "KCL6969", TipoVeiculo.MOTO);
+//		Veiculo v4 = new Veiculo(null, "YAMAHA", "Factor150", CorVeiculo.CINZA, "STF0157", TipoVeiculo.MOTO);
+//
+//		veiculoRepo.saveAll(Arrays.asList(v1, v2, v3, v4));
 
 	}
 

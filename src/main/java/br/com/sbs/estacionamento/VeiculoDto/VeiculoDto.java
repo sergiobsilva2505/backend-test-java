@@ -3,6 +3,11 @@ package br.com.sbs.estacionamento.VeiculoDto;
 import br.com.sbs.estacionamento.models.enums.CorVeiculo;
 import br.com.sbs.estacionamento.models.enums.TipoVeiculo;
 
+/**
+ * View do usuario para insercao de dados
+ * @author sergio
+ *
+ */
 public class VeiculoDto {
 
 	private String marca;

@@ -5,7 +5,15 @@ import org.springframework.stereotype.Repository;
 
 import br.com.sbs.estacionamento.models.Veiculo;
 
+/**
+ * 
+ * @author sergi
+ *
+ */
 @Repository
 public interface VeiculoRepository extends JpaRepository<Veiculo, Integer> {
+	/**
+	 * 
+	 */
 	
 }

@@ -13,6 +13,11 @@ import javax.persistence.Table;
 import br.com.sbs.estacionamento.models.enums.CorVeiculo;
 import br.com.sbs.estacionamento.models.enums.TipoVeiculo;
 
+/**
+ * Modelo para o objeto veiculo
+ * @author sergi
+ *
+ */
 @Entity
 @Table(name = "tb_veiculo")
 public class Veiculo implements Serializable {
