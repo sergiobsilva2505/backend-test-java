@@ -5,6 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import br.com.sbs.estacionamento.models.Estabelecimento;
 
+/**
+ * 
+ * @author sergi
+ *
+ */
 @Repository
 public interface EstabelecimentoRepository extends JpaRepository<Estabelecimento, Integer> {
 
