@@ -38,7 +38,7 @@ public class MovimentacaoController {
 		return ResponseEntity.ok().body(lista);
 	}
 	
-	@GetMapping(value = "movimentacao/{id}", produces = { MediaType.APPLICATION_JSON_VALUE,
+	@GetMapping(value = "/movimentacao/{id}", produces = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE} )
 	public ResponseEntity<Movimentacao> findById(@PathVariable Integer id ){
 		Movimentacao obj = movimentacaoService.findById(id);

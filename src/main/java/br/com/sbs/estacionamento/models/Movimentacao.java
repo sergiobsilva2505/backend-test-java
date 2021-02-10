@@ -29,7 +29,6 @@ public class Movimentacao {
 	@JoinColumn(name = "estabelecimento_id")
 	private Estabelecimento estabelecimento;
 
-	@SuppressWarnings("unused")
 	private Long tempoDeUso;
 
 	public Movimentacao() {
@@ -47,7 +46,7 @@ public class Movimentacao {
 	}
 
 	/**
-	 * Faz o cálculo do tempo de uso e seta na varável 
+	 * Faz o cálculo do tempo de uso e seta na varável
 	 */
 	public void setTempoDeUso() {
 		if (this.horaEntrada == null || this.horaSaida == null) {

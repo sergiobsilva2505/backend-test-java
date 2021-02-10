@@ -87,7 +87,7 @@ public class EstabelecimentoController {
 	public ResponseEntity<Void> update(@RequestBody EstabelecimentoDto objDto, @PathVariable Integer id) {
 		Estabelecimento estabelecimento = estabelecimentoService.fromDto(objDto);
 		estabelecimento.setId(id);
-		estabelecimentoService.update(estabelecimento);
+		estabelecimento = estabelecimentoService.update(estabelecimento);
 		return ResponseEntity.noContent().build();
 	}
 
@@ -97,8 +97,7 @@ public class EstabelecimentoController {
 	 * @param id
 	 * @return
 	 */
-	@DeleteMapping(value = "/deletaEstabelecimento/{id}", consumes = { MediaType.APPLICATION_JSON_VALUE,
-			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE })
+	@DeleteMapping(value = "/deletaEstabelecimento/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		estabelecimentoService.delete(id);
 		return ResponseEntity.noContent().build();

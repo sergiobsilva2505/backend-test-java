@@ -1,58 +1,47 @@
-### FCamara 🚀
-*"Queremos ser como uma árvore, 
-  crescer um pouco todos os dias e tentar tocar o céu, 
-  sem perder a solidez de nossas raízes."*
-Conheça: www.fcamara.com.br
+<h1 align="center">ESTACIONAMENTO</h1>
+<p align="center">Teste backend java - Fcamara</p>
 
-## Teste para vaga de Desenvolvedor Back-end
-Criar uma API REST para gerenciar um estacionamento de carros e motos.
 
-## Cadastro de estabelecimento
+  
 
-Criar um cadastro da empresa com os seguintes campos:
-- Nome;
-- CNPJ;
-- Endereço;
-- Telefone;
-- Quantidade de vagas para motos;
-- Quantidade de vagas para carros.
-
-**Todos** os campos são de preenchimento obrigatório.
-
-## Cadastro de veículos
-
-Criar um cadastro de veículos com os seguintes campos:
-- Marca;
-- Modelo;
-- Cor;
-- Placa;
-- Tipo.
-
-**Todos** os campos são de preenchimento obrigatório.
-
-## Funcionalidades
-
-   - **Estabelecimento:** CRUD;
-   - **Veículos:** CRUD;
-   - **Controle de entrada e saída de veículos.**
-
-## Requisitos
-
-   - Modelagem de dados;
-   - O retorno deverá ser em formato JSON e XML;
-   - Requisições GET, POST, PUT ou DELETE, conforme a melhor prática;
-   - A persistência dos dados pode ser realizada da maneira que preferir;
-   - Criar README do projeto descrevendo as tecnologias utilizadas, chamadas dos serviços e configurações necessário para executar a aplicação.
    
-## Ganha mais pontos
-   - Desenvolver utilizando TDD;
-   - Criar API de relatório;
-   - Sumário da quantidade de entrada e saída;
-   - Sumário da quantidade de entrada e saída de veículos por hora;
-   - Criar uma solução de autenticação.
+   
 
-## Submissão
-Crie um fork do teste para acompanharmos o seu desenvolvimento através dos seus commits.
 
-## Obrigado!
-Agradecemos sua participação no teste. Boa sorte! 😄
+## Download do projeto
+```bash
+# Clone este repositório
+$ git clone https://github.com/sergiobsilva2505/backend-test-java.git
+```
+
+
+## Requisito para executar
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+   * [Git](https://git-scm.com), 
+   * [jdk 1.8 ou posterior](https://www.oracle.com/technetwork/pt/java/javase/downloads/index.html)
+   * [Postman](https://www.postman.com/)
+   * [Chrome](tinyurl.com/1towppvy) ou o nevegador de internet de sua preferencia.
+   * [sts 4](https://spring.io/tools).
+
+```bash
+# Banco de Dados
+> Como banco de dados, o projeto utiliza o H2 database não sendo necessário a instalação, pois no Maven já está configurado para que rode em arquivo.
+
+```
+
+## Iniciando o projeto
+
+Após ter clonado o projeto para sua máquina, basta fazer o import no STS como 'existing maven project' e aguardar o maven fazer toda a configuração. Terminada a configuração é só rodar o projeto.
+
+## Rotas das requisições Http.
+
+Documentação com todas as rotas e json's necessários para testes [aqui](https://documenter.getpostman.com/view/8466840/TW77h3rs). Logado em seu Postman clique em "run in postman" e ele baixará as rotas para o seu postman.
+
+
+##  Tecnologias
+
+- [Java 8](https://docs.oracle.com/javase/8/docs/api/)
+- [Spring](https://spring.io/)
+- [Hibernate](http://hibernate.org/)
+- [H2 database](https://www.h2database.com/html/main.html)

@@ -92,8 +92,7 @@ public class VeiculoController {
 	 * @param id
 	 * @return
 	 */
-	@DeleteMapping(value = "/apagaVeiculo/{id}", consumes = { MediaType.APPLICATION_JSON_VALUE,
-			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE })
+	@DeleteMapping(value = "/apagaVeiculo/{id}")
 	public ResponseEntity<Void> delete(@PathVariable Integer id){
 		veiculoService.delete(id);
 		return ResponseEntity.noContent().build();

@@ -68,7 +68,7 @@ public class EstabelecimentoService {
 		est.setVagasParaMoto(obj.getVagasParaMoto());
 		est.setTelefone(obj.getTelefone());
 		est.setEndereco(obj.getEndereco());
-		return est;
+		return estabelecimentoRepo.save(est);
 	}
 
 	/**
