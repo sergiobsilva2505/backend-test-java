@@ -59,7 +59,7 @@ public class VeiculoController {
 	 * @param objDto
 	 * @return
 	 */
-	@PostMapping(value = "/novoVeiculo", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE,
+	@PostMapping(value = "/novoVeiculo", consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE,
 			MediaType.TEXT_XML_VALUE })
 	public ResponseEntity<Void> insert(@RequestBody VeiculoDto objDto) {
 		Veiculo novoVeiculo = new Veiculo(objDto.getMarca(), objDto.getModelo(), objDto.getCor(), objDto.getPlaca(),
@@ -77,7 +77,7 @@ public class VeiculoController {
 	 * @param id
 	 * @return
 	 */
-	@PutMapping(value = "/editaVeiculo/{id}", produces = { MediaType.APPLICATION_JSON_VALUE,
+	@PutMapping(value = "/editaVeiculo/{id}", consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE })
 	public ResponseEntity<Void> update(@RequestBody VeiculoDto objDto, @PathVariable Integer id) {
 		Veiculo veiculo = veiculoService.fromDto(objDto);
@@ -92,7 +92,7 @@ public class VeiculoController {
 	 * @param id
 	 * @return
 	 */
-	@DeleteMapping(value = "/apagaVeiculo/{id}", produces = { MediaType.APPLICATION_JSON_VALUE,
+	@DeleteMapping(value = "/apagaVeiculo/{id}", consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE })
 	public ResponseEntity<Void> delete(@PathVariable Integer id){
 		veiculoService.delete(id);

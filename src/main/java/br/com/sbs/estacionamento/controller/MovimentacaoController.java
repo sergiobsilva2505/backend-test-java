@@ -38,7 +38,7 @@ public class MovimentacaoController {
 	 * @param obj
 	 * @return
 	 */
-	@PostMapping(value = "/entradaVeiculo", produces = { MediaType.APPLICATION_JSON_VALUE,
+	@PostMapping(value = "/entradaVeiculo", consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE})
 	public ResponseEntity<Void> insert(@RequestBody EntradaVeiculoDto obj){
 		Movimentacao objMov = movimentacaoService.fromDto(obj);
@@ -48,7 +48,7 @@ public class MovimentacaoController {
 		return ResponseEntity.created(uri).build();
 	}
 	
-	@PutMapping(value = "/saidaVeiculo", produces = { MediaType.APPLICATION_JSON_VALUE,
+	@PutMapping(value = "/saidaVeiculo", consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE})
 	public ResponseEntity<Void> update(@RequestBody SaidaVeiculoDto objDto ){
 		movimentacaoService.update(objDto);

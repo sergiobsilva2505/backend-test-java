@@ -64,7 +64,7 @@ public class EstabelecimentoController {
 	 * @param objDto
 	 * @return
 	 */
-	@PostMapping(value = "/novoEstabelecimento", produces = { MediaType.APPLICATION_JSON_VALUE,
+	@PostMapping(value = "/novoEstabelecimento", consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE })
 	public ResponseEntity<Void> insert(@RequestBody EstabelecimentoDto objDto) {
 		Estabelecimento novoEstabelecimento = new Estabelecimento(objDto.getNome(), objDto.getCnpj(),
@@ -82,7 +82,7 @@ public class EstabelecimentoController {
 	 * @param id
 	 * @return
 	 */
-	@PutMapping(value = "/editaEstabelecimento/{id}", produces = { MediaType.APPLICATION_JSON_VALUE,
+	@PutMapping(value = "/editaEstabelecimento/{id}", consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE })
 	public ResponseEntity<Void> update(@RequestBody EstabelecimentoDto objDto, @PathVariable Integer id) {
 		Estabelecimento estabelecimento = estabelecimentoService.fromDto(objDto);
@@ -97,7 +97,7 @@ public class EstabelecimentoController {
 	 * @param id
 	 * @return
 	 */
-	@DeleteMapping(value = "/deletaEstabelecimento/{id}", produces = { MediaType.APPLICATION_JSON_VALUE,
+	@DeleteMapping(value = "/deletaEstabelecimento/{id}", consumes = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE })
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		estabelecimentoService.delete(id);
