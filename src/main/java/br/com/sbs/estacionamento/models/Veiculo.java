@@ -1,6 +1,8 @@
 package br.com.sbs.estacionamento.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -8,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.sbs.estacionamento.models.enums.CorVeiculo;
@@ -27,6 +30,7 @@ public class Veiculo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String marca;
 	private String modelo;
 	@Enumerated(value = EnumType.STRING)
@@ -34,6 +38,9 @@ public class Veiculo implements Serializable {
 	private String placa;
 	@Enumerated(value = EnumType.STRING)
 	private TipoVeiculo tipo;
+	
+	@OneToMany(mappedBy = "veiculo")
+	private List<Movimentacao> movimentacoes = new ArrayList<>();
 
 	public Veiculo() {
 
@@ -103,6 +110,14 @@ public class Veiculo implements Serializable {
 
 	public void setTipo(TipoVeiculo tipo) {
 		this.tipo = tipo;
+	}
+
+	public List<Movimentacao> getMovimentacoes() {
+		return movimentacoes;
+	}
+
+	public void setMovimentacoes(List<Movimentacao> movimentacoes) {
+		this.movimentacoes = movimentacoes;
 	}
 
 }

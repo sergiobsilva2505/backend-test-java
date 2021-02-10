@@ -1,11 +1,14 @@
 package br.com.sbs.estacionamento.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +26,10 @@ public class Estabelecimento implements Serializable {
 	private Integer vagasParaMoto;
 	private String telefone;
 	private String endereco;
+	
+	
+	@OneToMany(mappedBy = "estabelecimento")
+	private List<Movimentacao> movimentacoes = new ArrayList<>();
 
 	public Estabelecimento() {
 
@@ -103,6 +110,14 @@ public class Estabelecimento implements Serializable {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public List<Movimentacao> getMovimentacoes() {
+		return movimentacoes;
+	}
+
+	public void setMovimentacoes(List<Movimentacao> movimentacoes) {
+		this.movimentacoes = movimentacoes;
 	}
 
 }

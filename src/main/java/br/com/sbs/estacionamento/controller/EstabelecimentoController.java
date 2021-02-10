@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import br.com.sbs.estacionamento.Dto.EstabelecimentoDto;
-import br.com.sbs.estacionamento.Dto.VeiculoDto;
 import br.com.sbs.estacionamento.models.Estabelecimento;
 import br.com.sbs.estacionamento.services.EstabelecimentoService;
 
@@ -51,7 +50,8 @@ public class EstabelecimentoController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping(value = "/estabelecimento/{id}")
+	@GetMapping(value = "/estabelecimento/{id}", produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE})
 	public ResponseEntity<Estabelecimento> findByid(@PathVariable Integer id) {
 		Estabelecimento estabelecimento = estabelecimentoService.findById(id);
 		return ResponseEntity.ok().body(estabelecimento);
