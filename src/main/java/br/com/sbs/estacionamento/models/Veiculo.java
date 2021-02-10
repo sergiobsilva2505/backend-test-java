@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.sbs.estacionamento.models.enums.CorVeiculo;
 import br.com.sbs.estacionamento.models.enums.TipoVeiculo;
 
@@ -39,6 +41,7 @@ public class Veiculo implements Serializable {
 	@Enumerated(value = EnumType.STRING)
 	private TipoVeiculo tipo;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "veiculo")
 	private List<Movimentacao> movimentacoes = new ArrayList<>();
 

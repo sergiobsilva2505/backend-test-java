@@ -2,7 +2,6 @@ package br.com.sbs.estacionamento;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -73,40 +72,35 @@ public class EstacionamentoApplication implements CommandLineRunner {
 		mov1.setHoraEntrada(sdf.parse("07/02/2021 11:05").toInstant());
 		mov1.setHoraSaida(sdf.parse("07/02/2021 12:35").toInstant());
 		mov1.setVeiculo(v1);
-		Long tempo1 = mov1.getTempoDeUso();
-		mov1.setSegundosEstacionado(tempo1);
+		mov1.setTempoDeUso();
 
 		Movimentacao mov2 = new Movimentacao();
 		mov2.setEstabelecimento(est1);
 		mov2.setHoraEntrada(sdf.parse("07/02/2021 08:16").toInstant());
 		mov2.setHoraSaida(sdf.parse("07/02/2021 18:25").toInstant());
 		mov2.setVeiculo(v10);
-		Long tempo2 = mov2.getTempoDeUso();
-		mov2.setSegundosEstacionado(tempo2);
+		mov2.setTempoDeUso();
 
 		Movimentacao mov3 = new Movimentacao();
 		mov3.setEstabelecimento(est1);
 		mov3.setHoraEntrada(sdf.parse("07/02/2021 09:12").toInstant());
 		mov3.setHoraSaida(sdf.parse("07/02/2021 15:35").toInstant());
 		mov3.setVeiculo(v12);
-		Long tempo3 = mov3.getTempoDeUso();
-		mov3.setSegundosEstacionado(tempo3);
+		mov3.setTempoDeUso();
 
 		Movimentacao mov4 = new Movimentacao();
 		mov4.setEstabelecimento(est1);
 		mov4.setHoraEntrada(sdf.parse("07/02/2021 10:09").toInstant());
 		mov4.setHoraSaida(sdf.parse("07/02/2021 12:35").toInstant());
 		mov4.setVeiculo(v8);
-		Long tempo4 = mov4.getTempoDeUso();
-		mov4.setSegundosEstacionado(tempo4);
+		mov4.setTempoDeUso();
 
 		Movimentacao mov5 = new Movimentacao();
 		mov5.setEstabelecimento(est1);
 		mov5.setHoraEntrada(sdf.parse("07/02/2021 13:33").toInstant());
 		mov5.setHoraSaida(sdf.parse("07/02/2021 20:45").toInstant());
 		mov5.setVeiculo(v5);
-		Long tempo5 = mov5.getTempoDeUso();
-		mov5.setSegundosEstacionado(tempo5);
+		mov5.setTempoDeUso();
 
 		// salva no banco de dados
 		veiculoRepo.saveAll(Arrays.asList(v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15));

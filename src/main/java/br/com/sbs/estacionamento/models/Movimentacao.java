@@ -11,8 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "tb_movimentacao")
 public class Movimentacao {
@@ -23,17 +21,16 @@ public class Movimentacao {
 	private Instant horaEntrada;
 	private Instant horaSaida;
 
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "veiculo_id")
 	private Veiculo veiculo;
 
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "estabelecimento_id")
 	private Estabelecimento estabelecimento;
 
-	private Long segundosEstacionado;
+	@SuppressWarnings("unused")
+	private Long tempoDeUso;
 
 	public Movimentacao() {
 
@@ -46,9 +43,19 @@ public class Movimentacao {
 	}
 
 	public Long getTempoDeUso() {
-		// variaveis horaEntrada e horaSaida foram declaradas como Instant
-		Duration duration = Duration.between(this.horaEntrada, this.horaSaida);
-		return duration.getSeconds();
+		return tempoDeUso;
+	}
+
+	/**
+	 * Faz o cálculo do tempo de uso e seta na varável 
+	 */
+	public void setTempoDeUso() {
+		if (this.horaEntrada == null || this.horaSaida == null) {
+			this.tempoDeUso = null;
+		} else {
+			Duration duration = Duration.between(this.horaEntrada, this.horaSaida);
+			this.tempoDeUso = duration.getSeconds();
+		}
 	}
 
 	public Integer getId() {
@@ -73,14 +80,6 @@ public class Movimentacao {
 
 	public void setHoraSaida(Instant horaSaida) {
 		this.horaSaida = horaSaida;
-	}
-
-	public Long getGegundosEstacionado() {
-		return segundosEstacionado;
-	}
-
-	public void setSegundosEstacionado(Long segundosEstacionado) {
-		this.segundosEstacionado = segundosEstacionado;
 	}
 
 	public Veiculo getVeiculo() {

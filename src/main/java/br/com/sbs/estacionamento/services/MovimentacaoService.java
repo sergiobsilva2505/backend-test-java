@@ -16,32 +16,29 @@ import br.com.sbs.estacionamento.repositories.MovimentacaoRepository;
 
 @Service
 public class MovimentacaoService {
-	
+
 	@Autowired
 	private VeiculoService veiculoService;
 	@Autowired
 	private EstabelecimentoService estabelecimentoService;
-	
+
 	@Autowired
 	private MovimentacaoRepository movimentacaoRepo;
-	
-	
+
 	/**
 	 * Busca todas a movimentacçoes no bancode dados.
+	 * 
 	 * @return
 	 */
 	public List<Movimentacao> findAll() {
 		List<Movimentacao> lista = movimentacaoRepo.findAll();
 		return lista;
 	}
-	
-	
-	
-
 
 	/**
-	 * Inseri uma movimentacao no banco de dados nesse caso especifico, resgistrando apenas a
-	 * entrada de um veiculo em um estabelecimento 
+	 * Inseri uma movimentacao no banco de dados nesse caso especifico, resgistrando
+	 * apenas a entrada de um veiculo em um estabelecimento
+	 * 
 	 * @param obj
 	 * @return
 	 */
@@ -50,10 +47,11 @@ public class MovimentacaoService {
 		obj = movimentacaoRepo.save(obj);
 		return obj;
 	}
-	
+
 	/**
-	 * Recebe um objeto MovimetacaoDto, encontra os respectivos objetos veiculo e estabelecimento, informados
-	 * pelo usuario e retorna o modelo Movimentacao.
+	 * Recebe um objeto MovimetacaoDto, encontra os respectivos objetos veiculo e
+	 * estabelecimento, informados pelo usuario e retorna o modelo Movimentacao.
+	 * 
 	 * @param objDto
 	 * @return
 	 */
@@ -66,6 +64,7 @@ public class MovimentacaoService {
 
 	/**
 	 * Busca de movimentacção por id
+	 * 
 	 * @param idMovimentacao
 	 * @return
 	 */
@@ -73,21 +72,19 @@ public class MovimentacaoService {
 		Optional<Movimentacao> obj = movimentacaoRepo.findById(idMovimentacao);
 		return obj.orElse(null);
 	}
-	
+
 	/**
-	 * Registra o horario de saida de um veiculo do estacionamento,
-	 * recupera o tempo estcionado e salva no banco de dados.
+	 * Registra o horario de saida de um veiculo do estacionamento, recupera o tempo
+	 * de uso do estacionamento e salva no banco de dados.
 	 * @param obj
 	 * @return
 	 */
 	public Movimentacao update(SaidaVeiculoDto obj) {
 		Movimentacao newObj = findById(obj.getIdMovimentacao());
 		newObj.setHoraSaida(Instant.now());
-		newObj.setSegundosEstacionado(newObj.getTempoDeUso());
+		newObj.setTempoDeUso();
 		movimentacaoRepo.save(newObj);
 		return newObj;
 	}
-
-	
 
 }

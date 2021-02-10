@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,11 +27,22 @@ public class MovimentacaoController {
 	@Autowired
 	private MovimentacaoService movimentacaoService;
 	
+	/**
+	 * Apresenta a lista de todas a movimentações existentes
+	 * @return
+	 */
 	@GetMapping(value = "/movimentacoes", produces = { MediaType.APPLICATION_JSON_VALUE,
 			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE})
 	public ResponseEntity<List<Movimentacao>> findAll(){
 		List<Movimentacao> lista = movimentacaoService.findAll(); 
 		return ResponseEntity.ok().body(lista);
+	}
+	
+	@GetMapping(value = "movimentacao/{id}", produces = { MediaType.APPLICATION_JSON_VALUE,
+			MediaType.APPLICATION_XML_VALUE, MediaType.TEXT_XML_VALUE} )
+	public ResponseEntity<Movimentacao> findById(@PathVariable Integer id ){
+		Movimentacao obj = movimentacaoService.findById(id);
+		return ResponseEntity.ok().body(obj);
 	}
 	
 	/**

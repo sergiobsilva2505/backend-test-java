@@ -5,7 +5,12 @@ import org.springframework.stereotype.Repository;
 
 import br.com.sbs.estacionamento.models.Movimentacao;
 
+/**
+ * 
+ * @author sergi
+ *
+ */
 @Repository
-public interface MovimentacaoRepository extends JpaRepository<Movimentacao, Integer>{
+public interface MovimentacaoRepository extends JpaRepository<Movimentacao, Integer> {
 
 }
