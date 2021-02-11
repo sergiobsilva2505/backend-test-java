@@ -101,6 +101,41 @@ public class EstacionamentoApplication implements CommandLineRunner {
 		mov5.setHoraSaida(sdf.parse("07/02/2021 20:45").toInstant());
 		mov5.setVeiculo(v5);
 		mov5.setTempoDeUso();
+		
+		Movimentacao mov6 = new Movimentacao();
+		mov6.setEstabelecimento(est2);
+		mov6.setHoraEntrada(sdf.parse("07/02/2021 11:05").toInstant());
+		mov6.setHoraSaida(sdf.parse("07/02/2021 12:35").toInstant());
+		mov6.setVeiculo(v1);
+		mov6.setTempoDeUso();
+
+		Movimentacao mov7 = new Movimentacao();
+		mov7.setEstabelecimento(est2);
+		mov7.setHoraEntrada(sdf.parse("07/02/2021 08:16").toInstant());
+		mov7.setHoraSaida(sdf.parse("07/02/2021 18:25").toInstant());
+		mov7.setVeiculo(v10);
+		mov7.setTempoDeUso();
+
+		Movimentacao mov8 = new Movimentacao();
+		mov8.setEstabelecimento(est1);
+		mov8.setHoraEntrada(sdf.parse("07/02/2021 09:12").toInstant());
+		mov8.setHoraSaida(sdf.parse("07/02/2021 15:35").toInstant());
+		mov8.setVeiculo(v12);
+		mov8.setTempoDeUso();
+
+		Movimentacao mov9 = new Movimentacao();
+		mov9.setEstabelecimento(est2);
+		mov9.setHoraEntrada(sdf.parse("07/02/2021 10:09").toInstant());
+		mov9.setHoraSaida(sdf.parse("07/02/2021 12:35").toInstant());
+		mov9.setVeiculo(v8);
+		mov9.setTempoDeUso();
+
+		Movimentacao mov10 = new Movimentacao();
+		mov10.setEstabelecimento(est2);
+		mov10.setHoraEntrada(sdf.parse("07/02/2021 13:33").toInstant());
+		mov10.setHoraSaida(sdf.parse("07/02/2021 20:45").toInstant());
+		mov10.setVeiculo(v5);
+		mov10.setTempoDeUso();
 
 		// salva no banco de dados
 		veiculoRepo.saveAll(Arrays.asList(v1, v2, v3, v4, v5, v6, v7, v8, v9, v10, v11, v12, v13, v14, v15));
@@ -113,7 +148,7 @@ public class EstacionamentoApplication implements CommandLineRunner {
 		v8.getMovimentacoes().addAll(Arrays.asList(mov4));
 		v5.getMovimentacoes().addAll(Arrays.asList(mov5));
 		
-		movimentacaoRepo.saveAll(Arrays.asList(mov1, mov2, mov3, mov4, mov5));
+		movimentacaoRepo.saveAll(Arrays.asList(mov1, mov2, mov3, mov4, mov5, mov6, mov7, mov8,mov9,mov10));
 
 	}
 

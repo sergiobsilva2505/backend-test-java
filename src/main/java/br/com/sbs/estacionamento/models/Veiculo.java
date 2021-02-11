@@ -44,14 +44,12 @@ public class Veiculo implements Serializable {
 	@NotBlank(message = "Campo modelo é obrigatório")
 	private String modelo;
 
-//	@NotBlank(message = "Campo cor é obrigatório")
 	@Enumerated(value = EnumType.STRING)
 	private CorVeiculo cor;
 	
 	@NotBlank(message = "Campo placa é obrigatório")
 	private String placa;
 
-//	@NotBlank(message = "campo tipo é obrigatório")
 	@Enumerated(value = EnumType.STRING)
 	private TipoVeiculo tipo;
 

@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -22,11 +25,24 @@ public class Estabelecimento implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@NotBlank(message = "Campo nome é obrigatório")
 	private String nome;
+	
+	@CNPJ
+	@NotBlank(message = "Campo cnpj é obrigatório")
 	private String cnpj;
+	
+//	@NotBlank(message = "Campo vagas para carro é obrigatório")
 	private Integer vagasParaCarro;
+	
+//	@NotBlank(message = "Campo vagas para moto é obrigatório")
 	private Integer vagasParaMoto;
+	
+	@NotBlank(message = "Campo telefone é obrigatório")
 	private String telefone;
+	
+	@NotBlank(message = "Campo endereço é obrigatório")
 	private String endereco;
 	
 	@JsonIgnore

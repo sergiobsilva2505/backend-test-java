@@ -2,6 +2,7 @@ package br.com.sbs.estacionamento.models;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.concurrent.TimeUnit;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,6 +31,7 @@ public class Movimentacao {
 	private Estabelecimento estabelecimento;
 
 	private Long tempoDeUso;
+	private String tempoDeUsoLegivel;
 
 	public Movimentacao() {
 
@@ -53,8 +55,23 @@ public class Movimentacao {
 			this.tempoDeUso = null;
 		} else {
 			Duration duration = Duration.between(this.horaEntrada, this.horaSaida);
-			this.tempoDeUso = duration.getSeconds();
+			this.tempoDeUso = duration.toMillis();
 		}
+
+		setTempoDeUsoLegivel();
+	}
+
+	/**
+	 * Pega o valor da varável tempo de uso e converte para uma string legível para
+	 * o usuario.
+	 * 
+	 * @return
+	 */
+	public void setTempoDeUsoLegivel() {
+		String tempoFormatado = String.format("%03d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(this.tempoDeUso),
+				TimeUnit.MILLISECONDS.toMinutes(this.tempoDeUso) % 60,
+				TimeUnit.MICROSECONDS.toSeconds(this.tempoDeUso) % 60);
+		this.tempoDeUsoLegivel = tempoFormatado;
 	}
 
 	public Integer getId() {
@@ -95,6 +112,14 @@ public class Movimentacao {
 
 	public void setEstabelecimento(Estabelecimento estabelecimento) {
 		this.estabelecimento = estabelecimento;
+	}
+
+	public String getTempoDeUsoLegivel() {
+		return tempoDeUsoLegivel;
+	}
+
+	public void setTempoDeUsoLegivel(String tempoDeUsoLegivel) {
+		this.tempoDeUsoLegivel = tempoDeUsoLegivel;
 	}
 
 }
