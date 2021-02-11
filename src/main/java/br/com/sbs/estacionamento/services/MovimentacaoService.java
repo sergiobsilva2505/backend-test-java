@@ -13,6 +13,7 @@ import br.com.sbs.estacionamento.models.Estabelecimento;
 import br.com.sbs.estacionamento.models.Movimentacao;
 import br.com.sbs.estacionamento.models.Veiculo;
 import br.com.sbs.estacionamento.repositories.MovimentacaoRepository;
+import br.com.sbs.estacionamento.services.exception.ObjectNotFoundException;
 
 @Service
 public class MovimentacaoService {
@@ -70,7 +71,8 @@ public class MovimentacaoService {
 	 */
 	public Movimentacao findById(Integer idMovimentacao) {
 		Optional<Movimentacao> obj = movimentacaoRepo.findById(idMovimentacao);
-		return obj.orElse(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + idMovimentacao + ", Tipo: " + Movimentacao.class.getName()));
 	}
 
 	/**

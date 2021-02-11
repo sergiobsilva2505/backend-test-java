@@ -3,6 +3,8 @@ package br.com.sbs.estacionamento.controller;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -61,7 +63,7 @@ public class VeiculoController {
 	 */
 	@PostMapping(value = "/novoVeiculo", consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE,
 			MediaType.TEXT_XML_VALUE })
-	public ResponseEntity<Void> insert(@RequestBody VeiculoDto objDto) {
+	public ResponseEntity<Void> insert(@Valid @RequestBody VeiculoDto objDto) {
 		Veiculo novoVeiculo = new Veiculo(objDto.getMarca(), objDto.getModelo(), objDto.getCor(), objDto.getPlaca(),
 				objDto.getTipo());
 		novoVeiculo = veiculoService.insert(novoVeiculo);

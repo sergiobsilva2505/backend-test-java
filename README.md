@@ -24,19 +24,25 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
    * [Chrome](tinyurl.com/1towppvy) ou o nevegador de internet de sua preferencia.
    * [sts 4](https://spring.io/tools).
 
-```bash
-# Banco de Dados
-> Como banco de dados, o projeto utiliza o H2 database não sendo necessário a instalação, pois no Maven já está configurado para que rode em arquivo.
-
-```
-
-## Iniciando o projeto
+   ## Iniciando o projeto
 
 Após ter clonado o projeto para sua máquina, basta fazer o import no STS como 'existing maven project' e aguardar o maven fazer toda a configuração. Terminada a configuração é só rodar o projeto.
 
+
+```bash
+# Banco de Dados
+> Como banco de dados, o projeto utiliza o H2 database não sendo necessário a instalação, pois no Maven já está configurado para que rode em arquivo.
+> Para ter acesso ao banco de dados, basta acessar pelo navegador a url:"http://localhost:8080/h2-console" após rodar 
+aplicação. 
+> Inserir nos campos:
+JDBC URL inserir -> "jdbc:h2:file:~/estacionamento", 
+User Name -> "sa", 
+Password -> "".
+```
 ## Rotas das requisições Http.
 
-Documentação com todas as rotas e json's necessários para testes [aqui](https://documenter.getpostman.com/view/8466840/TW77h3rs). Logado em seu Postman clique em "run in postman" e ele baixará as rotas para o seu postman.
+Documentação com todas as rotas e json's necessários para testes [aqui](https://documenter.getpostman.com/view/8466840/TW77h3rs). 
+Logado em seu Postman clique em "run in postman" e ele baixará as rotas para a sua aplicação.
 
 
 ##  Tecnologias

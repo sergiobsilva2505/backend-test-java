@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import br.com.sbs.estacionamento.Dto.EstabelecimentoDto;
-import br.com.sbs.estacionamento.exceptions.DataIntegrityException;
 import br.com.sbs.estacionamento.models.Estabelecimento;
 import br.com.sbs.estacionamento.repositories.EstabelecimentoRepository;
+import br.com.sbs.estacionamento.services.exception.DataIntegrityException;
+import br.com.sbs.estacionamento.services.exception.ObjectNotFoundException;
 
 /**
  * 
@@ -40,7 +42,8 @@ public class EstabelecimentoService {
 	 */
 	public Estabelecimento findById(Integer id) {
 		Optional<Estabelecimento> obj = estabelecimentoRepo.findById(id);
-		return obj.orElse(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Estabelecimento.class.getName()));
 	}
 
 	/**
@@ -79,7 +82,7 @@ public class EstabelecimentoService {
 	public void delete(Integer id) {
 		try {
 			estabelecimentoRepo.deleteById(id);
-		} catch (DataIntegrityException e) {
+		} catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Impossivel deletar");
 		}
 

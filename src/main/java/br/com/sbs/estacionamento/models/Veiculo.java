@@ -12,6 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -20,6 +24,7 @@ import br.com.sbs.estacionamento.models.enums.TipoVeiculo;
 
 /**
  * Modelo para o objeto veiculo
+ * 
  * @author sergi
  *
  */
@@ -32,15 +37,24 @@ public class Veiculo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
+	@NotBlank(message = "Campo marca é obrigatório")
 	private String marca;
+	
+	@NotBlank(message = "Campo modelo é obrigatório")
 	private String modelo;
+
+//	@NotBlank(message = "Campo cor é obrigatório")
 	@Enumerated(value = EnumType.STRING)
 	private CorVeiculo cor;
+	
+	@NotBlank(message = "Campo placa é obrigatório")
 	private String placa;
+
+//	@NotBlank(message = "campo tipo é obrigatório")
 	@Enumerated(value = EnumType.STRING)
 	private TipoVeiculo tipo;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "veiculo")
 	private List<Movimentacao> movimentacoes = new ArrayList<>();

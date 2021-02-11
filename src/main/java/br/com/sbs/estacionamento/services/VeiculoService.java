@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import br.com.sbs.estacionamento.Dto.VeiculoDto;
-import br.com.sbs.estacionamento.exceptions.DataIntegrityException;
 import br.com.sbs.estacionamento.models.Veiculo;
 import br.com.sbs.estacionamento.repositories.VeiculoRepository;
+import br.com.sbs.estacionamento.services.exception.DataIntegrityException;
+import br.com.sbs.estacionamento.services.exception.ObjectNotFoundException;
 
 /**
  * 
@@ -40,7 +42,8 @@ public class VeiculoService {
 	 */
 	public Veiculo findById(Integer id) {
 		Optional<Veiculo> veiculo = veiculoRepo.findById(id);
-		return veiculo.orElse(null);
+		return veiculo.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Veiculo.class.getName()));
 	}
 
 	/**
@@ -54,15 +57,15 @@ public class VeiculoService {
 		veiculo = veiculoRepo.save(veiculo);
 		return veiculo;
 	}
- 
-	
+
 	/**
 	 * Atualiza pelo id no banco de dados um veiculo solicitado pelo uuario
+	 * 
 	 * @param obj
 	 * @return
 	 */
 	public Veiculo update(Veiculo obj) {
-		Veiculo veiculo = findById(obj.getId());		
+		Veiculo veiculo = findById(obj.getId());
 		veiculo.setCor(obj.getCor());
 		veiculo.setMarca(obj.getMarca());
 		veiculo.setModelo(obj.getModelo());
@@ -73,6 +76,7 @@ public class VeiculoService {
 
 	/**
 	 * Realiza a troca do objeto VeiculoDto pelo Modelo Veiculo
+	 * 
 	 * @param objDto
 	 * @return
 	 */
@@ -84,12 +88,13 @@ public class VeiculoService {
 
 	/**
 	 * Deleta por id, um veiculo cadastrado do banco de dados
+	 * 
 	 * @param id
 	 */
 	public void delete(Integer id) {
 		try {
 			veiculoRepo.deleteById(id);
-		} catch (DataIntegrityException e) {
+		} catch (DataIntegrityViolationException e) {
 			throw new DataIntegrityException("Impossivel deletar");
 		}
 	}

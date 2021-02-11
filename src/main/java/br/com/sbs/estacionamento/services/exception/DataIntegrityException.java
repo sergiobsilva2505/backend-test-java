@@ -1,4 +1,4 @@
-package br.com.sbs.estacionamento.exceptions;
+package br.com.sbs.estacionamento.services.exception;
 
 public class DataIntegrityException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
