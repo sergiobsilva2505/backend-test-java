@@ -2,11 +2,16 @@
 <p align="center">Teste backend java - Fcamara</p>
 
 
-  
 
-## Modelagem dos dados
-Para visualizar o diagrama de classes desenvolvido para este projeto [CLIQUE AQUI](https://tinyurl.com/1820px3n). 
+## Requisito para executar
 
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+   * [Git](https://git-scm.com), 
+   * [jdk 1.8 ou posterior](https://www.oracle.com/technetwork/pt/java/javase/downloads/index.html)
+   * [Postman](https://www.postman.com/)
+   * [Chrome](tinyurl.com/1towppvy) ou o navegador de sua preferencia.
+   * [sts 4](https://spring.io/tools).
+   * [MySql](https://dev.mysql.com/downloads/mysql/)  
 
 
 ## Download do projeto
@@ -16,25 +21,25 @@ $ git clone https://github.com/sergiobsilva2505/backend-test-java.git
 ```
 
 
-## Requisito para executar
+## Iniciando o projeto
 
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-   * [Git](https://git-scm.com), 
-   * [jdk 1.8 ou posterior](https://www.oracle.com/technetwork/pt/java/javase/downloads/index.html)
-   * [Postman](https://www.postman.com/)
-   * [Chrome](tinyurl.com/1towppvy) ou o nevegador de internet de sua preferencia.
-   * [sts 4](https://spring.io/tools).
-   * [MySql](https://dev.mysql.com/downloads/mysql/)
-
-   ## Iniciando o projeto
-
-Após ter clonado o projeto para sua máquina, basta fazer o import no STS como 'existing maven project' e aguardar o maven fazer toda a configuração. Terminada a configuração é só rodar o projeto.
+Após ter clonado o projeto para sua máquina, basta fazer o import no STS como "existing maven project" e aguardar o STS fazer toda a configuração. Terminada a configuração é só rodar o projeto.
 
 
 ```bash
 # Banco de Dados
-> Criar no seu MySql uma base de dados com o nome "estacionamento" e colocar sua senha e seu usuario no arquivo application.properties do projeto, antes da primeira execução.
+> Criar no seu MySql uma base de dados com o nome "estacionamento".
+> No arquivo "main => resources => application.properties" configurar usuário e senha.
+> Executar o projeto pela primeira vez.
+> Tudo ok? Então voltar no arquivo "application.properties" e mudar o valor da propriedade "spring.jpa.hibernate.ddl-auto" para "none".
+> Apagar todo o conteudo contido no método "public void run(String... args) throws Exception " da classe "EstacionamentoApplication.java" que está em SRC => MAIN => JAVA . 
+> Seguir com os testes. 
 ```
+
+## Modelagem dos dados
+Para visualizar o diagrama de classes desenvolvido para este projeto [CLIQUE AQUI](https://tinyurl.com/1820px3n). 
+
+
 ## Rotas das requisições Http.
 
 Documentação com todas as rotas e json's necessários para testes [aqui](https://documenter.getpostman.com/view/8466840/TW77h3rs). 

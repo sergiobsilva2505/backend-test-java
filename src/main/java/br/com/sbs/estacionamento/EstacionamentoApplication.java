@@ -101,7 +101,7 @@ public class EstacionamentoApplication implements CommandLineRunner {
 		mov5.setHoraSaida(sdf.parse("07/02/2021 20:45").toInstant());
 		mov5.setVeiculo(v5);
 		mov5.setTempoDeUso();
-		
+
 		Movimentacao mov6 = new Movimentacao();
 		mov6.setEstabelecimento(est2);
 		mov6.setHoraEntrada(sdf.parse("07/02/2021 11:05").toInstant());
@@ -147,8 +147,8 @@ public class EstacionamentoApplication implements CommandLineRunner {
 		v12.getMovimentacoes().addAll(Arrays.asList(mov3));
 		v8.getMovimentacoes().addAll(Arrays.asList(mov4));
 		v5.getMovimentacoes().addAll(Arrays.asList(mov5));
-		
-		movimentacaoRepo.saveAll(Arrays.asList(mov1, mov2, mov3, mov4, mov5, mov6, mov7, mov8,mov9,mov10));
+
+		movimentacaoRepo.saveAll(Arrays.asList(mov1, mov2, mov3, mov4, mov5, mov6, mov7, mov8, mov9, mov10));
 
 	}
 
