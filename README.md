@@ -4,8 +4,9 @@
 
   
 
-   
-   
+## Modelagem dos dados
+Para visualizar o diagrama de classes desenvolvido para este projeto [CLIQUE AQUI](https://tinyurl.com/1820px3n). 
+
 
 
 ## Download do projeto
@@ -23,6 +24,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
    * [Postman](https://www.postman.com/)
    * [Chrome](tinyurl.com/1towppvy) ou o nevegador de internet de sua preferencia.
    * [sts 4](https://spring.io/tools).
+   * [MySql](https://dev.mysql.com/downloads/mysql/)
 
    ## Iniciando o projeto
 
@@ -31,13 +33,7 @@ Após ter clonado o projeto para sua máquina, basta fazer o import no STS como 
 
 ```bash
 # Banco de Dados
-> Como banco de dados, o projeto utiliza o H2 database não sendo necessário a instalação, pois no Maven já está configurado para que rode em arquivo.
-> Para ter acesso ao banco de dados, basta acessar pelo navegador a url:"http://localhost:8080/h2-console" após rodar 
-aplicação. 
-> Inserir nos campos:
-JDBC URL inserir -> "jdbc:h2:file:~/estacionamento", 
-User Name -> "sa", 
-Password -> "".
+> Criar no seu MySql uma base de dados com o nome "estacionamento" e colocar sua senha e seu usuario no arquivo application.properties do projeto, antes da primeira execução.
 ```
 ## Rotas das requisições Http.
 
@@ -50,4 +46,4 @@ Logado em seu Postman clique em "run in postman" e ele baixará as rotas para a 
 - [Java 8](https://docs.oracle.com/javase/8/docs/api/)
 - [Spring](https://spring.io/)
 - [Hibernate](http://hibernate.org/)
-- [H2 database](https://www.h2database.com/html/main.html)
+- [Mysql](https://www.mysql.com/)
